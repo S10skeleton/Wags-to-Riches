@@ -1,3 +1,5 @@
+// This file is correlated with the correct classes for the login.handlebars file
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 

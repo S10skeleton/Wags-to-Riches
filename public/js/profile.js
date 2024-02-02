@@ -1,3 +1,5 @@
+// This is example code- does not correlate to this project. Will need to be changed
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 

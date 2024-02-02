@@ -1,3 +1,6 @@
+// This file is correlated with the correct classes for the homepage.handlebars file
+
+
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',

@@ -1,6 +1,9 @@
 const router = require('express').Router();
+const axios = require('axios');
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const token = process.env.PETFINDER_TOKEN;
+
 
 router.get('/', async (req, res) => {
   try {
@@ -13,9 +16,15 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    const petData = await axios.get('https://api.petfinder.com/v2/animals?type=cat&age=young', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }})
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const projects = projectData.map((project) => project.get({ plain: true }))
+    const catNames = petData.data.animals.map(cat => cat.name);
+    console.log('Cats:', catNames)
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 

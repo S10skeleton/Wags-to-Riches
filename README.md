@@ -22,8 +22,8 @@ We welcome contributions! If you'd like to contribute to the project, please fol
 ## Display
 
 ## Contributers
-Thomas @ ThomasJHoltamIII on Github
-Shane @ S10skeleton on Github
-Jadah @ heyitsmejadah on Github
-James @ jbatcheller32 on Github
-Steven @ steviewp on Github
+Thomas @ ThomasJHoltamIII on Github <br>
+Shane @ S10skeleton on Github <br>
+Jadah @ heyitsmejadah on Github <br>
+James @ jbatcheller32 on Github <br>
+Steven @ steviewp on Github <br>

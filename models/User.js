@@ -16,7 +16,15 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    full_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -28,12 +36,27 @@ User.init(
         isEmail: true,
       },
     },
+    phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [10],
+      },
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
       },
+    },
+    work_schedule: {
+      type: DataTypes.ENUM('full time', 'part time', 'work from home'),
+      allowNull: false,
+    },
+    personal_statement: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {

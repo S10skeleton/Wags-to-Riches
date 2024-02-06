@@ -8,15 +8,6 @@
     </div>
 
     <div class="mb-3">
-        <label for="ageRange" class="form-label">Age Range:</label>
-        <select id="ageRange" name="ageRange" class="form-select">
-            <option value="18-25">18-25</option>
-            <option value="26-35">26-35</option>
-            <!-- Add more options as needed -->
-        </select>
-    </div>
-
-    <div class="mb-3">
         <label for="location" class="form-label">Location:</label>
         <input type="text" id="location" name="location" class="form-control" required>
     </div>
@@ -51,19 +42,7 @@
         </select>
     </div>
 
-    <div class="mb-3">
-        <label for="breed" class="form-label">Breed:</label>
-        <select id="breed" name="breed" class="form-select">
-            {{#each breeds}}
-                <option value="{{this.BreedID}}">{{this.BreedName}}</option>
-            {{/each}}
-        </select>
-    </div>
-
     <!-- Add other fields for pet preferences... -->
-
-    <!-- Current Pets Section -->
-    <!-- Repeat similar structure for current pets -->
 
     <!-- Additional Information Section -->
     <div class="mb-3">

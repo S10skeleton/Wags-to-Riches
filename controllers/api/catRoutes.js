@@ -27,14 +27,13 @@ router.get('/', async (req, res) => {
     const catState = catsWithPictures.map(cat => cat.contact.address.state);
     const catEmail = catsWithPictures.map(cat => cat.contact.email);
     const catPhone = catsWithPictures.map(cat => cat.contact.phone);
-    const catPhotos = catsWithPictures.map(cat => cat.photos.length > 0 ? cat.photos[0].full : null);
+    // const catPhotos = catsWithPictures.map(cat => cat.photos.length > 0 ? cat.photos[0].full : null);
 
-
-    console.log('Cats:', catNames, catDescription, catBreed, catAge, catGender, catSize, catCity, catState, catEmail, catPhone, catPhotos);
+    console.log('Cats:', catNames, catDescription, catBreed, catAge, catGender, catSize, catCity, catState, catEmail, catPhone);
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-     catNames, 
+    catNames, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

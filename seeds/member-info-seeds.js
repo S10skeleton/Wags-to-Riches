@@ -24,8 +24,8 @@ const breeds = [
 ];
 
 const users = [
-    ['John Doe', '30-35', 'New York, NY', 'johndoe@email.com', '555-1234', 'Full-time', 'Experienced', 'Companionship', 'Active', 'Willing to train', 'House', 'Alone', true, 'Looking to adopt a dog for companionship and outdoor activities.'],
-    ['Jane Smith', '25-30', 'Los Angeles, CA', 'janesmith@email.com', '555-5678', 'Part-time', 'First Time', 'Family Pet', 'Moderate', 'Prefer trained pet', 'Apartment', 'With Family', false, 'Want a friendly cat to grow with our family.']
+    ['John Doe', 'New York, NY', 'johndoe@email.com', '555-1234', 'Full-time', 'Experienced', 'Companionship', 'Active', 'Willing to train', 'House', 'Alone', true, 'Looking to adopt a dog for companionship and outdoor activities.'],
+    ['Jane Smith', 'Los Angeles, CA', 'janesmith@email.com', '555-5678', 'Part-time', 'First Time', 'Family Pet', 'Moderate', 'Prefer trained pet', 'Apartment', 'With Family', false, 'Want a friendly cat to grow with our family.']
 ];
 
 const userPreferences = [

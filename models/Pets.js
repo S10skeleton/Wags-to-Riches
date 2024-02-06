@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Pets extends Model { }
 
-Project.init(
+Pets.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,22 +11,43 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+
+    breed: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+
+    type: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+
+    size: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
+
+    age: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    gender: {
+      type: DataTypes.STRING,
+    },
+
+    coat: {
+      type: DataTypes.STRING
+    },
+
+    color: {
+      type: DataTypes.STRING,
+    },
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -34,14 +55,17 @@ Project.init(
         key: 'id',
       },
     },
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'pets',
   }
 );
 
-module.exports = Project;
+module.exports = Pets;
+
+

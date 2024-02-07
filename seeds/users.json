@@ -1,0 +1,56 @@
+[
+    {
+        "name": "John Doe",
+        "location": "New York, NY",
+        "email": "johndoe@email.com",
+        "phone": "555-1234",
+        "password": "YoMomma"
+
+    },
+    {
+        "name": "Jane Smith",
+        "location": "Los Angeles, CA",
+        "email": "janesmith@email.com",
+        "phone": "555-5678",
+        "password": "YoMomma2"
+
+    },
+    {
+        "name": "Michael Johnson",
+        "location": "New York, NY",
+        "email": "michaeljohnson@email.com",
+        "phone": "555-1834",
+        "password": "SecurePass1"
+    },
+    {
+        "name": "Emily Rodriguez",
+        "location": "Miami, FL",
+        "email": "emilyrodriguez@email.com",
+        "phone": "555-4321",
+        "password": "Pass1234"
+    },
+    {
+        "name": "David Lee",
+        "location": "Chicago, IL",
+        "email": "davidlee@email.com",
+        "phone": "555-6789",
+        "password": "MyPassword5"
+    },
+    {
+        "name": "Sarah Parker",
+        "location": "Houston, TX",
+        "email": "sarahparker@email.com",
+        "phone": "555-9876",
+        "password": "ParkerPass7"
+    },
+    {
+        "name": "Kevin Brown",
+        "location": "Seattle, WA",
+        "email": "kevinbrown@email.com",
+        "phone": "555-5643",
+        "password": "Brownie2024"
+    }
+    
+    
+    
+]

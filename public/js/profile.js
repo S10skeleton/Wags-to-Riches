@@ -1,49 +1,55 @@
-// This is example code- does not correlate to this project. Will need to be changed
 
-const newFormHandler = async (event) => {
-  event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const userData = {
+    user_name: 'John Doe',
+    user_location: 'City, Country', // this should be replaced with the actual user data
+  };
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  // Function to render user data
+  const renderUserData = () => {
+    document.querySelector('.mb-4 p:first-child').textContent = userData.user_name;
+    document.querySelector('.mb-4 p:last-child').textContent = userData.user_location;
+  };
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  // example data for the three saved pets
+  const savedPetsData = [
+    {
+      image: 'image/path',
+      name: 'Sam',
+      breed: 'Labrador',
+      location: 'Park',
+    },
+    {
+      image: 'image/path',
+      name: 'Charlie',
+      breed: 'Tabby',
+      location: 'Beach',
+    },
+    {
+      image: 'image/path',
+      name: 'Max',
+      breed: 'German Shepherd',
+      location: 'City',
+    },
+  ];
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
-  }
-};
+  // Function to render saved pets on the user profile page
+  const renderSavedPets = () => {
+    savedPetsData.forEach((petData, index) => {
+      const petElement = document.getElementById(`pet${index + 1}`);
+      petElement.querySelector('.card-img-top').src = petData.image;
+      petElement.querySelector('.card-title').textContent = petData.name;
+      petElement.querySelector('.card-text:nth-child(2)').textContent = `Breed: ${petData.breed}`;
+      petElement.querySelector('.card-text:last-child').textContent = `Location: ${petData.location}`;
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
+  // Call functions to render initial data
+  renderUserData();
+  renderSavedPets();
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
 
-document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+
+
+});
+

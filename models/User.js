@@ -20,12 +20,27 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // user_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
         isEmail: true,
+      },
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [10],
       },
     },
     password: {
@@ -35,6 +50,14 @@ User.init(
         len: [8],
       },
     },
+    // work_schedule: {
+    //   type: DataTypes.ENUM('full time', 'part time', 'work from home'),
+    //   allowNull: false,
+    // },
+    // personal_statement: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
   },
   {
     hooks: {
@@ -51,7 +74,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'User',
   }
 );
 

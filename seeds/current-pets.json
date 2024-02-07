@@ -1,0 +1,16 @@
+[
+    {
+        "userId": 1,
+        "petType": "Dog",
+        "petId": 1,
+        "age": "5 years",
+        "characteristics": "Friendly with other dogs, very active"
+    },
+    {
+        "userId": 2,
+        "petType": "Cat",
+        "petId": 2,
+        "age": "2 years",
+        "characteristics": "Calm and independent, good with children"
+    }
+]

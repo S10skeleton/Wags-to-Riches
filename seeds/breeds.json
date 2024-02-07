@@ -1,0 +1,10 @@
+[
+    {
+        "breed": "Golden Retriever",
+        "type": "Dog"
+    },
+    {
+        "breed": "Siamese",
+        "type": "Cat"
+    }
+]

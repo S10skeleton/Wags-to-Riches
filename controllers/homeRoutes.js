@@ -7,6 +7,7 @@ const token = process.env.PETFINDER_TOKEN;
 
 router.get('/', async (req, res) => {
   try {
+    console.log(`hello`)
     res.render('homepage');
   } catch (err) {
     res.status(500).json(err);

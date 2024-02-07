@@ -15,24 +15,24 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await breeds.bulkCreate(breedsData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await breeds.bulkCreate(breedsData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 //   await Users.bulkCreate(usersData, {
 //     individualHooks: true,
 //     returning: true,
 //   });
 
-  await userPreferences.bulkCreate(userPreferencesData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await userPreferences.bulkCreate(userPreferencesData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
-  await currentPets.bulkCreate(currentPetsData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await currentPets.bulkCreate(currentPetsData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   // Seed data for Model2 (if it depends on Model1, use model1Entries)
   // Add any specific logic needed

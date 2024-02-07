@@ -5,16 +5,7 @@ const withAuth = require('../utils/auth');
 const token = process.env.PETFINDER_TOKEN;
 
 
-router.get('/', async (req, res) => {
-  try {
-    console.log(`hello`)
-    res.render('homepage');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/', async (req, res) => {
+router.get('/cats', async (req, res) => {
   try {
     const petData = await axios.get('https://api.petfinder.com/v2/animals?type=cat', {
       headers: {
@@ -61,24 +52,41 @@ router.get('/', async (req, res) => {
     // Filter dogs with pictures
     const dogsWithPictures = petData.data.animals.filter(dog => dog.photos.length > 0);
 
+    console.log(dogsWithPictures[0])
+
+    const petsArray = dogsWithPictures.map(dog => {
+      return {
+        name: dog.name,
+        description: dog.description,
+        breed: dog.breeds.primary,
+        species: dog.species,
+        age: dog.age,
+        size: dog.size,
+        coat: dog.coat,
+        attributes: dog.attributes,
+        image: dog.photos[0].large
+      }
+    })
+
     // Extract details from response
-    const dogNames = dogsWithPictures.map(dog => dog.name);
-    const dogDescription = dogsWithPictures.map(dog => dog.description);
-    const dogBreed = dogsWithPictures.map(dog => dog.breeds.primary);
-    const dogAge = dogsWithPictures.map(dog => dog.age);
-    const dogGender = dogsWithPictures.map(dog => dog.gender);
-    const dogSize = dogsWithPictures.map(dog => dog.size);
-    const dogCity = dogsWithPictures.map(dog => dog.contact.address.city);
-    const dogState = dogsWithPictures.map(dog => dog.contact.address.state);
-    const dogEmail = dogsWithPictures.map(dog => dog.contact.email);
-    const dogPhone = dogsWithPictures.map(dog => dog.contact.phone);
+    // const dogNames = dogsWithPictures.map(dog => dog.name);
+    // const dogDescription = dogsWithPictures.map(dog => dog.description);
+    // const dogBreed = dogsWithPictures.map(dog => dog.breeds.primary);
+    // const dogAge = dogsWithPictures.map(dog => dog.age);
+    // const dogGender = dogsWithPictures.map(dog => dog.gender);
+    // const dogSize = dogsWithPictures.map(dog => dog.size);
+    // const dogCity = dogsWithPictures.map(dog => dog.contact.address.city);
+    // const dogState = dogsWithPictures.map(dog => dog.contact.address.state);
+    // const dogEmail = dogsWithPictures.map(dog => dog.contact.email);
+    // const dogPhone = dogsWithPictures.map(dog => dog.contact.phone);
     // const dogPhotos = dogsWithPictures.map(dog => dog.photos.length > 0 ? dog.photos[0].full : null);
 
-    console.log('dogs:', dogNames, dogDescription, dogBreed, dogAge, dogGender, dogSize, dogCity, dogState, dogEmail, dogPhone);
+    // console.log('dogs:', dogNames, dogDescription, dogBreed, dogAge, dogGender, dogSize, dogCity, dogState, dogEmail, dogPhone);
+
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-    dogNames, 
+      petsArray, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

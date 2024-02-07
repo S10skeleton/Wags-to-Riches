@@ -1,49 +1,57 @@
-// This is example code- does not correlate to this pet. Will need to be changed
+james-branch-1
+document.addEventListener('DOMContentLoaded', () => {
+  const userData = {
+    user_name: 'John Doe',
+    user_location: 'City, Country', // this should be replaced with the actual user data
+  };
 
-const newFormHandler = async (event) => {
-  event.preventDefault();
+  // Function to render user data
+  const renderUserData = () => {
+    document.querySelector('.mb-4 p:first-child').textContent = userData.user_name;
+    document.querySelector('.mb-4 p:last-child').textContent = userData.user_location;
+  };
 
-  const name = document.querySelector('#pet-name').value.trim();
-  const needed_funding = document.querySelector('#pet-funding').value.trim();
-  const description = document.querySelector('#pet-desc').value.trim();
+  // example data for the three saved pets
+  const savedPetsData = [
+    {
+      image: 'image/path',
+      name: 'Sam',
+      breed: 'Labrador',
+      location: 'Park',
+    },
+    {
+      image: 'image/path',
+      name: 'Charlie',
+      breed: 'Tabby',
+      location: 'Beach',
+    },
+    {
+      image: 'image/path',
+      name: 'Max',
+      breed: 'German Shepherd',
+      location: 'City',
+    },
+  ];
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/pets`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  // Function to render saved pets on the user profile page
+  const renderSavedPets = () => {
+    savedPetsData.forEach((petData, index) => {
+      const petElement = document.getElementById(`pet${index + 1}`);
+      petElement.querySelector('.card-img-top').src = petData.image;
+      petElement.querySelector('.card-title').textContent = petData.name;
+      petElement.querySelector('.card-text:nth-child(2)').textContent = `Breed: ${petData.breed}`;
+      petElement.querySelector('.card-text:last-child').textContent = `Location: ${petData.location}`;
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create pet');
-    }
-  }
-};
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+james-branch-1
+  // Call functions to render initial data
+  renderUserData();
+  renderSavedPets();
 
-    const response = await fetch(`/api/pets/${id}`, {
-      method: 'DELETE',
-    });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete pet');
-    }
-  }
-};
 
-document
-  .querySelector('.new-pet-form')
-  .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.pet-list')
-  .addEventListener('click', delButtonHandler);
+james-branch-1
+
+});
+

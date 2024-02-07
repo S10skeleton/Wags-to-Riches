@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
@@ -16,14 +16,14 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    full_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // user_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -36,7 +36,7 @@ User.init(
         isEmail: true,
       },
     },
-    phone_number: {
+    phone: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -50,14 +50,14 @@ User.init(
         len: [8],
       },
     },
-    work_schedule: {
-      type: DataTypes.ENUM('full time', 'part time', 'work from home'),
-      allowNull: false,
-    },
-    personal_statement: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // work_schedule: {
+    //   type: DataTypes.ENUM('full time', 'part time', 'work from home'),
+    //   allowNull: false,
+    // },
+    // personal_statement: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
   },
   {
     hooks: {
@@ -74,7 +74,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'User',
   }
 );
 

@@ -1,3 +1,4 @@
+james-branch-1
 document.addEventListener('DOMContentLoaded', () => {
   const userData = {
     user_name: 'John Doe',
@@ -40,14 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
       petElement.querySelector('.card-title').textContent = petData.name;
       petElement.querySelector('.card-text:nth-child(2)').textContent = `Breed: ${petData.breed}`;
       petElement.querySelector('.card-text:last-child').textContent = `Location: ${petData.location}`;
-    });
-  };
 
+
+james-branch-1
   // Call functions to render initial data
   renderUserData();
   renderSavedPets();
 
 
+
+
+james-branch-1
 
 });
 

@@ -1,7 +1,7 @@
 # Wags to Riches
 ## Introduction
-Welcome to our Pet Adoption Website! This project is designed to help connect adorable pets with loving families. The website is built using Handlebars for templating and MySQL for data storage.
-## Project Task
+Welcome to our Pet Adoption Website! This pet is designed to help connect adorable pets with loving families. The website is built using Handlebars for templating and MySQL for data storage.
+## Pet Task
 Create a full stack web application that uses the following technologies:
 ## Technologies Used
 -Handlebars: A templating engine for creating dynamic HTML templates.
@@ -15,7 +15,7 @@ Create a full stack web application that uses the following technologies:
 -Adoption Process: Seamless adoption process with easy-to-follow steps.
 -Responsive Design: Accessible on various devices for a consistent experience.
 ## Contributions
-We welcome contributions! If you'd like to contribute to the project, please follow our contribution guidelines.
+We welcome contributions! If you'd like to contribute to the pet, please follow our contribution guidelines.
 ## Links to Repo and Deployment
 [Link to the Github Repo](https://github.com/S10skeleton/Wags-to-Riches)
 

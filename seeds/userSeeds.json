@@ -1,0 +1,47 @@
+[
+    {
+      "breed": "Labrador Retriever",
+      "type": "Dog",
+      "size": "Large",
+      "age": "Young",
+      "status": "Adoptable",
+      "gender": "Male",
+      "coat": "Short",
+      "color": "Black",
+      "user_id": 1
+    },
+    {
+      "breed": "Persian",
+      "type": "Cat",
+      "size": "Medium",
+      "age": "Adult",
+      "status": "Adoptable",
+      "gender": "Female",
+      "coat": "Long",
+      "color": "White",
+      "user_id": 2
+    },
+    {
+      "breed": "Beagle",
+      "type": "Dog",
+      "size": "Medium",
+      "age": "Senior",
+      "status": "Adoptable",
+      "gender": "Female",
+      "coat": "Short",
+      "color": "Tricolor",
+      "user_id": 3
+    },
+    {
+      "breed": "Maine Coon",
+      "type": "Cat",
+      "size": "Large",
+      "age": "Kitten",
+      "status": "Adoptable",
+      "gender": "Male",
+      "coat": "Long",
+      "color": "Brown",
+      "user_id": 4
+    }
+  ]
+  

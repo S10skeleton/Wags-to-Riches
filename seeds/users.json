@@ -4,29 +4,15 @@
         "location": "New York, NY",
         "email": "johndoe@email.com",
         "phone": "555-1234",
-        "employment": "Full-time",
-        "experience": "Experienced",
-        "purpose": "Companionship",
-        "activityLevel": "Active",
-        "trainingPreference": "Willing to train",
-        "homeType": "House",
-        "livingSituation": "Alone",
-        "hasChildren": true,
-        "notes": "Looking to adopt a dog for companionship and outdoor activities."
+        "password": "YoMomma"
+
     },
     {
         "name": "Jane Smith",
         "location": "Los Angeles, CA",
         "email": "janesmith@email.com",
         "phone": "555-5678",
-        "employment": "Part-time",
-        "experience": "First Time",
-        "purpose": "Family Pet",
-        "activityLevel": "Moderate",
-        "trainingPreference": "Prefer trained pet",
-        "homeType": "Apartment",
-        "livingSituation": "With Family",
-        "hasChildren": false,
-        "notes": "Want a friendly cat to grow with our family."
+        "password": "YoMomma2"
+
     }
 ]

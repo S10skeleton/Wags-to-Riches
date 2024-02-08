@@ -5,84 +5,41 @@ const withAuth = require('../utils/auth');
 const token = process.env.PETFINDER_TOKEN;
 
 
-router.get('/cats', async (req, res) => {
-  try {
-    const petData = await axios.get('https://api.petfinder.com/v2/animals?type=cat', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-
-    // Filter cats with pictures
-    const catsWithPictures = petData.data.animals.filter(cat => cat.photos.length > 0);
-
-    // Extract details from response
-    const catNames = catsWithPictures.map(cat => cat.name);
-    const catDescription = catsWithPictures.map(cat => cat.description);
-    const catBreed = catsWithPictures.map(cat => cat.breeds.primary);
-    const catAge = catsWithPictures.map(cat => cat.age);
-    const catGender = catsWithPictures.map(cat => cat.gender);
-    const catSize = catsWithPictures.map(cat => cat.size);
-    const catCity = catsWithPictures.map(cat => cat.contact.address.city);
-    const catState = catsWithPictures.map(cat => cat.contact.address.state);
-    const catEmail = catsWithPictures.map(cat => cat.contact.email);
-    const catPhone = catsWithPictures.map(cat => cat.contact.phone);
-    // const catPhotos = catsWithPictures.map(cat => cat.photos.length > 0 ? cat.photos[0].full : null);
-
-    console.log('Cats:', catNames, catDescription, catBreed, catAge, catGender, catSize, catCity, catState, catEmail, catPhone);
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-    catNames, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/', async (req, res) => {
   try {
-    const petData = await axios.get('https://api.petfinder.com/v2/animals?type=dog', {
+    // Fetch dogs
+    const dogData = await axios.get('https://api.petfinder.com/v2/animals?type=dog', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
     });
 
-    // Filter dogs with pictures
-    const dogsWithPictures = petData.data.animals.filter(dog => dog.photos.length > 0);
-
-    console.log(dogsWithPictures[0])
-
-    const petsArray = dogsWithPictures.map(dog => {
-      return {
-        name: dog.name,
-        description: dog.description,
-        breed: dog.breeds.primary,
-        species: dog.species,
-        age: dog.age,
-        size: dog.size,
-        coat: dog.coat,
-        attributes: dog.attributes,
-        image: dog.photos[0].large
+    // Fetch cats
+    const catData = await axios.get('https://api.petfinder.com/v2/animals?type=cat', {
+      headers: {
+        'Authorization': `Bearer ${token}`
       }
-    })
+    });
 
-    // Extract details from response
-    // const dogNames = dogsWithPictures.map(dog => dog.name);
-    // const dogDescription = dogsWithPictures.map(dog => dog.description);
-    // const dogBreed = dogsWithPictures.map(dog => dog.breeds.primary);
-    // const dogAge = dogsWithPictures.map(dog => dog.age);
-    // const dogGender = dogsWithPictures.map(dog => dog.gender);
-    // const dogSize = dogsWithPictures.map(dog => dog.size);
-    // const dogCity = dogsWithPictures.map(dog => dog.contact.address.city);
-    // const dogState = dogsWithPictures.map(dog => dog.contact.address.state);
-    // const dogEmail = dogsWithPictures.map(dog => dog.contact.email);
-    // const dogPhone = dogsWithPictures.map(dog => dog.contact.phone);
-    // const dogPhotos = dogsWithPictures.map(dog => dog.photos.length > 0 ? dog.photos[0].full : null);
+    // Function to filter animals with pictures and map properties
+    const sortPets = (pets) => pets.filter(pet => pet.photos.length > 0).map(pet => ({
+      name: pet.name,
+      description: pet.description,
+      breed: pet.breeds.primary,
+      species: pet.species,
+      age: pet.age,
+      size: pet.size,
+      coat: pet.coat,
+      attributes: pet.attributes,
+      image: pet.photos[0].large
+    }));
 
-    // console.log('dogs:', dogNames, dogDescription, dogBreed, dogAge, dogGender, dogSize, dogCity, dogState, dogEmail, dogPhone);
+    // Filter and map dogs and cats
+    const dogsWithPictures = sortPets(dogData.data.animals);
+    const catsWithPictures = sortPets(catData.data.animals);
 
+    // Combine dogs and cats into one array
+    const petsArray = [...dogsWithPictures, ...catsWithPictures];
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -100,6 +57,47 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{ model: Project }],
     });
+
+
+    // Route for only dogs, can be swapped to cats by replacing dog 
+    // router.get('/', async (req, res) => {
+    //   try {
+    //     const petData = await axios.get('https://api.petfinder.com/v2/animals?type=dog', {
+    //       headers: {
+    //         'Authorization': `Bearer ${token}`
+    //       }
+    //     });
+    
+    //     // Filter dogs with pictures
+    //     const dogsWithPictures = petData.data.animals.filter(dog => dog.photos.length > 0);
+    
+    //     console.log(dogsWithPictures[0])
+    
+    //     const petsArray = dogsWithPictures.map(dog => {
+    //       return {
+    //         name: dog.name,
+    //         description: dog.description,
+    //         breed: dog.breeds.primary,
+    //         species: dog.species,
+    //         age: dog.age,
+    //         size: dog.size,
+    //         coat: dog.coat,
+    //         attributes: dog.attributes,
+    //         image: dog.photos[0].large
+    //       }
+    //     })
+    
+    //     // Pass serialized data and session flag into template
+    //     res.render('homepage', { 
+    //       petsArray, 
+    //       logged_in: req.session.logged_in 
+    //     });
+    //   } catch (err) {
+    //     res.status(500).json(err);
+    //   }
+    // });
+    
+
 
 
     res.render('profile', {

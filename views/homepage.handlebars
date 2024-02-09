@@ -2,15 +2,15 @@
 <div class="container mt-4">
     <form class="input-group mb-3 justify-content-center">
         <h2 class="header2">Filter by cat or dog:</h2>
-        <div class="input-group-append">
-            <select class="form-select" id="petTypeSelect">
-                <option value="all">All</option>
-                <option value="cat">Cat</option>
-                <option value="dog">Dog</option>
-            </select>
+        <div class="btn-group" role="group" aria-label="Pet Type Filters">
+            <a href="/" class="btn btn-secondary" id="filterAll">All</a>
+            <a href="/api/cat" class="btn btn-secondary" id="filterCat">Cat</a>
+            <a href="/api/dog" class="btn btn-secondary" id="filterDog">Dog</a>
         </div>
     </form>
 </div>
+
+
 
 
 <!-- Featured Pets Section -->

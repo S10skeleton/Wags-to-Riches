@@ -1,17 +1,22 @@
 
 
-<!-- Search Bar -->
+<!-- Filter Bar -->
 <div class="container mt-4">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by...">
+    <form class="input-group mb-3">
+        <h2 class="header2 text-center">Filter by cat or dog:</h2>
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Search</button>
+            <select class="form-select" id="petTypeSelect">
+                <option value="all">All</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+            </select>
         </div>
-    </div>
+    </form>
 </div>
 
+
 <!-- Featured Pets Section -->
-<div class="container mt-4">
+<div id= "results" class="container mt-4">
     <h2>Featured Pets</h2>
     <div class="row">
 {{#each petsArray}}

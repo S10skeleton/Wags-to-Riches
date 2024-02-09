@@ -53,6 +53,7 @@ Pets.init(
       references: {
         model: 'user',
         key: 'id',
+        
       },
     },
 

@@ -1,7 +1,5 @@
-
-
 <!-- Search Bar -->
-<div class="container mt-4">
+<div class="container mt-4 complementary-color"> <!-- Add the complementary color class here -->
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by...">
         <div class="input-group-append">
@@ -12,7 +10,7 @@
 
 <!-- Featured Pets Section -->
 <div class="container mt-4">
-    <h2>Featured Pets</h2>
+    <h2 class="header2">Featured Pets</h2>
     <div class="row">
         {{#each petsArray}}
             <div class="col-md-4">
@@ -23,6 +21,7 @@
                         <p class="card-text">{{species}}</p>
                         <p class="card-text">{{breed}}</p>
                         <p class="card-text">{{location}}</p>
+                        <p class="card-text">{{gender}}</p>
                     </div>
                 </div>
             </div>

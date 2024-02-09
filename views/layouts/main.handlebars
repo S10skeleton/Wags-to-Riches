@@ -25,16 +25,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <!-- Conditionally render login or logout links -->
-              {{#if logged_in}}
-              <a href="/profile">profile</a> |
-              <button class="no-button" id="logout">Logout</button>
-              {{else}}
-              <a href="/login" class="login-link">Login</a>
-              {{/if}}
+              <div class="complementary-color"> <!-- Wrap login links in a container with complementary color -->
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a href="/profile">profile</a> |
+                <button class="no-button" id="logout">Logout</button>
+                {{else}}
+                <a href="/login" class="login-link">Login</a>
+                {{/if}}
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Saved Pets</a>
+              <div class="complementary-color"> <!-- Wrap saved pets link in a container with complementary color -->
+                <a class="nav-link" href="#">Saved Pets</a>
+              </div>
             </li>
           </ul>
         </div>

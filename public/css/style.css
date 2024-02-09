@@ -1,26 +1,39 @@
 body {
-  background-color: #a6f8a6;
-  /* Light green background */
-  font-family: 'Protest Riot', sans-serif;
-  /* Set font-family */
+  background-color: #a6f8a6; /* Light green background */
+  font-family: 'Protest Riot', sans-serif; /* Set font-family */
 }
 
 .header1 {
-  margin-left: auto;
+  margin-left: 30px;
   margin-right: auto;
+  font-size: 75px;
+}
+
+.header2 {
+  text-align: center;
+  color: #333; /* Dark text color */
+  font-size: 50px;
 }
 
 /* Style the header */
 header {
   background-color: #6fafc4;
-  /* White background for header */
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Add drop shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
 }
+
 h1 a {
   color: #333; /* Dark text color for the header link */
   text-decoration: none;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+.card-body {
+  background-color: #a6f8a6;
+  text-align: center;
 }
 
 .navbar-nav .nav-item {
@@ -48,7 +61,7 @@ h1 a {
 }
 
 .login-link {
-  margin-top: 7px; /* Adjust as needed */
+  margin-top: 9px; /* Adjust as needed */
   margin-right: 15px; /* Adjust as needed */
 }
 
@@ -82,6 +95,10 @@ footer {
   background-color: #6fafc4;
 }
 
+/* Complementary color */
+.complementary-color {
+  background-color: #ffd699; /* Soft yellow or peachy tone */
+}
 
 @media screen and (max-width: 768px) {
   header,
@@ -98,5 +115,3 @@ footer {
     text-align: center;
   }
 }
-
-

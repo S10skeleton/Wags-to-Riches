@@ -11,27 +11,52 @@
 
 <!-- Pet Information -->
 <div class="container mt-4">
-
-    <div class="text-center">
-        <img src="pet_image.jpg" alt="Pet Image" class="img-fluid rounded" style="max-height: 300px;">
-    </div>
-
     <h1 class="mt-3 text-center">{{name}}</h1>
 
+
+    <div class="text-center">
+        <img src="{{image}}" alt="Pet Image" class="img-fluid rounded" style="max-height: 300px;">
+        
+    </div>
+
+    {{#if gender}}
+    <div class="pet-info mt-4 text-center">
+        <h3>Gender:</h3>
+        <p class="lead">{{gender}}</p>
+    </div>
+{{/if}}
+
+    {{#if breed}}
     <div class="pet-info mt-4 text-center">
         <h3>Breed:</h3>
         <p class="lead">{{breed}}</p>
     </div>
+    {{/if}}
 
-    <div class="pet-info text-center">
-        <h3>Location:</h3>
-        <p class="lead">{{location}}</p>
-    </div>
 
+    {{#if description}}
     <div class="pet-info text-center">
         <h3>More Information:</h3>
         <p>
             {{description}}
+        </p>
+    </div>
+</div>
+{{/if}}
+
+    <div class="pet-info text-center">
+        <h3>Adopt!</h3>
+        <p>
+            {{email}}
+        </p>
+        <p>
+            {{phone}}
+        </p>
+        <p>
+            {{city}}
+        </p>
+        <p>
+            {{state}}
         </p>
     </div>
 </div>

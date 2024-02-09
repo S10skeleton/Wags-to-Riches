@@ -17,7 +17,7 @@ Create a full stack web application that uses the following technologies:
 ## Contributions
 We welcome contributions! If you'd like to contribute to the pet, please follow our contribution guidelines.
 ## Links to Repo and Deployment
-[Github Repo](https://github.com/S10skeleton/Wags-to-Riches)
+[Github Repo](https://github.com/S10skeleton/Wags-to-Riches) <br>
 [Heroku Deployment](https://wags-to-riches-e18aa5042031.herokuapp.com/)
 ## Display
 

@@ -1,4 +1,4 @@
-const breedsData = require('./breeds.json');
+const petData = require('./petSeeds.json');
 const usersData = require('./users.json');
 const userPreferencesData = require('./user-prefrences.json');
 const currentPetsData = require('./current-pets.json');
@@ -15,10 +15,10 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // await breeds.bulkCreate(breedsData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
+  await Pets.bulkCreate(petData, {
+    individualHooks: true,
+    returning: true,
+  });
 //   await Users.bulkCreate(usersData, {
 //     individualHooks: true,
 //     returning: true,

@@ -22,6 +22,10 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
 }
 
+h2 {
+  text-align: center;
+}
+
 h1 a {
   color: #333; /* Dark text color for the header link */
   text-decoration: none;

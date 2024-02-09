@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 
     // Function to filter animals with pictures and map properties
     const sortPets = (pets) => pets.filter(pet => pet.photos.length > 0).map(pet => ({
+      id: pet.id,
       name: pet.name,
       description: pet.description,
       breed: pet.breeds.primary,
@@ -30,6 +31,10 @@ router.get('/', async (req, res) => {
       age: pet.age,
       size: pet.size,
       coat: pet.coat,
+      email: pet.email,
+      phone: pet.phone,
+      city: pet.city,
+      state: pet.state,
       attributes: pet.attributes,
       image: pet.photos[0].large
     }));
@@ -50,6 +55,38 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.get('/pet/:id', async (req, res) => {
+  const petId = req.params.id;
+  try {
+    const petDetail = await axios.get(`https://api.petfinder.com/v2/animals/${petId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    const pet = {
+      id: petDetail.data.animal.id,
+      name: petDetail.data.animal.name,
+      description: petDetail.data.animal.description,
+      breed: petDetail.data.animal.breeds.primary,
+      species: petDetail.data.animal.species,
+      state: petDetail.data.animal.contact.address.state,
+      email: petDetail.data.animal.contact.email,
+      phone: petDetail.data.animal.contact.phone,
+      city: petDetail.data.animal.contact.address.city,
+      image: petDetail.data.animal.photos.length > 0 ? petDetail.data.animal.photos[0].large : null,
+    };
+
+    res.render('pet', pet);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 
 router.get('/profile', withAuth, async (req, res) => {
   try {

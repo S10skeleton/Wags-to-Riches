@@ -4,32 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Pet!</title>
+  <title>Wags to Riches- Pet Adoption Helper</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/jass.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Wags to Riches</a>
+      <h1 class= "header1 mx-auto">
+          <a href="/">Wags to Riches</a>
       </h1>
       <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <!-- Conditionally render login or logout links -->
               {{#if logged_in}}
               <a href="/profile">profile</a> |
-              <button class="no-button" id="logout">logout</button>
+              <button class="no-button" id="logout">Logout</button>
               {{else}}
-              <a href="/login">login</a>
+              <a href="/login" class="login-link">Login</a>
               {{/if}}
             </li>
             <li class="nav-item">

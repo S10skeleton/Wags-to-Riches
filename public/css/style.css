@@ -1,24 +1,102 @@
-header, .pet:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body {
+  background-color: #a6f8a6;
+  /* Light green background */
+  font-family: 'Protest Riot', sans-serif;
+  /* Set font-family */
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
+.header1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style the header */
+header {
+  background-color: #6fafc4;
+  /* White background for header */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Add drop shadow */
+}
+h1 a {
+  color: #333; /* Dark text color for the header link */
   text-decoration: none;
-  font-size: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.navbar-nav .nav-item {
+  display: flex; /* Use flexbox for the nav items */
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #6fafc4;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.navbar-nav .nav-item a {
+  color: #333; /* Dark text color for nav links */
+  margin-bottom: 10px; /* Add some space between links */
 }
+
+.navbar-nav .nav-item a:hover {
+  color: #6c757d; /* Darker text color on hover */
+}
+
+/* Style the main container */
+.container {
+  background-color: #6fafc4;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+}
+
+.login-link {
+  margin-top: 7px; /* Adjust as needed */
+  margin-right: 15px; /* Adjust as needed */
+}
+
+/* Style the footer */
+footer {
+  background-color: #6fafc4; /* White background for footer */
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+}
+
+/* Style the saved pets link */
+.navbar-nav .nav-item:last-child {
+  margin-right: 0; /* Remove margin for the last nav item */
+}
+
+/* Style the boxes for the pets */
+.pet-box {
+  background-color: #a6f8a6;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+}
+
+.form-control {
+  background-color: #a6f8a6;
+}
+
+.btn btn-outline-secondary {
+  background-color: #6fafc4;
+}
+
+
+@media screen and (max-width: 768px) {
+  header,
+  main {
+    flex-direction: column;
+  }
+
+  section {
+    padding-right: 0;
+  }
+
+  aside {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+

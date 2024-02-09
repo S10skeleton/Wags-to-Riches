@@ -69,6 +69,7 @@ router.get('/pet/:id', async (req, res) => {
     const pet = {
       id: petDetail.data.animal.id,
       name: petDetail.data.animal.name,
+      gender: petDetail.data.animal.gender,
       description: petDetail.data.animal.description,
       breed: petDetail.data.animal.breeds.primary,
       species: petDetail.data.animal.species,

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
-const { Pet, User } = require('../models');
+const { Pets, User } = require('../models');
 const withAuth = require('../utils/auth');
 const token = process.env.PETFINDER_TOKEN;
 

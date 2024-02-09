@@ -14,20 +14,19 @@
 
 
 <!-- Featured Pets Section -->
-<div id= "results" class="container mt-4">
+<div class="container mt-4">
     <h2>Featured Pets</h2>
     <div class="row">
-        {{#each petsArray}}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{image}}" class="card-img-top" alt="{{name}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{name}}</h5>
-                        <p class="card-text">{{species}}</p>
-                        <p class="card-text">{{breed}}</p>
-                        <p class="card-text">{{location}}</p>
-                        <p class="card-text">{{gender}}</p>
-                    </div>
+{{#each petsArray}}
+    <div class="col-md-4">
+        <a href="/pet/{{id}}" style="text-decoration: none; color: inherit;">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{image}}" class="card-img-top" alt="{{name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{species}}</p>
+                    <p class="card-text">{{breed}}</p>
+                    <p class="card-text">{{location}}</p>
                 </div>
             </div>
         </a>

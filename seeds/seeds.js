@@ -5,12 +5,18 @@ const userData = require('./users.json');
 const petData = require('./userSeeds.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: true })
+  .then(() => {
+    console.log('Database & tables created!');
+  });
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
+    
+    
   });
+  
 
   for (const pets of petData) {
     await Pets.create({

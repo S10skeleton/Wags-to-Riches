@@ -61,9 +61,10 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Pets }],
     });
 
+    const user = userData.get({ plain: true });
 
     res.render('profile', {
       ...user,

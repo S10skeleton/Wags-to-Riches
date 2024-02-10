@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     user_location: 'City, Country', // this should be replaced with the actual user data
   };
 
-  // Function to render user data
+  //Function to render user data
   const renderUserData = () => {
     document.querySelector('.mb-4 p:first-child').textContent = userData.user_name;
     document.querySelector('.mb-4 p:last-child').textContent = userData.user_location;
   };
 
-  // example data for the three saved pets
+  //example data for the three saved pets
   const savedPetsData = [
     {
       image: 'image/path',
@@ -41,15 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
       petElement.querySelector('.card-title').textContent = petData.name;
       petElement.querySelector('.card-text:nth-child(2)').textContent = `Breed: ${petData.breed}`;
       petElement.querySelector('.card-text:last-child').textContent = `Location: ${petData.location}`;
+    });
 
+  }
+  
 
-  // Call functions to render initial data
+  //Call functions to render initial data
   renderUserData();
   renderSavedPets();
 
 
 
+  });
 
 
-});
+
 

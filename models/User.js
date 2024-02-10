@@ -24,10 +24,10 @@ User.init(
     //   type: DataTypes.STRING,
     //   allowNull: false,
     // },
-    location: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // location: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -36,13 +36,13 @@ User.init(
         isEmail: true,
       },
     },
-    phone: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [10],
-      },
-    },
+    // phone: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     len: [10],
+    //   },
+    // },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -74,7 +74,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'User',
+    modelName: 'user',
   }
 );
 

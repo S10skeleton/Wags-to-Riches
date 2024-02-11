@@ -1,19 +1,12 @@
 const router = require('express').Router();
 const axios = require('axios');
-const { Pets, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Pet, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 const token = process.env.PETFINDER_TOKEN;
 
 
 router.get('/', async (req, res) => {
   try {
-    // Fetch dogs
-    const dogData = await axios.get('https://api.petfinder.com/v2/animals?type=dog', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-
     // Fetch cats
     const catData = await axios.get('https://api.petfinder.com/v2/animals?type=cat', {
       headers: {
@@ -39,12 +32,11 @@ router.get('/', async (req, res) => {
       image: pet.photos[0].large
     }));
 
-    // Filter and map dogs and cats
-    const dogsWithPictures = sortPets(dogData.data.animals);
+    // Filter and map dogs
     const catsWithPictures = sortPets(catData.data.animals);
 
-    // Combine dogs and cats into one array
-    const petsArray = [...dogsWithPictures, ...catsWithPictures];
+    // Combine dogs into one array
+    const petsArray = [...catsWithPictures];
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -56,12 +48,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Pets }],
+      include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
@@ -86,3 +77,4 @@ router.get('/login', (req, res) => {
 
 
 module.exports = router;
+

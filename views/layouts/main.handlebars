@@ -16,42 +16,33 @@
 
 <body>
   <div class="flex-row justify-space-around">
-    <header class="display-flex justify-space-around align-center p-2">
+    <header class="display-flex justify-space-around align-center p-2 full-width">
       <h1 class= "header1">
           <a href="/">Wags to Riches</a>
       </h1>
       <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <div class="complementary-color"> <!-- Wrap login links in a container with complementary color -->
-                <!-- Conditionally render login or logout links -->
-                {{#if logged_in}}
-                <a href="/profile">profile</a> |
-                <button class="no-button" id="logout">Logout</button>
-                {{else}}
-                <a href="/login" class="login-link">Login</a>
-                {{/if}}
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="complementary-color"> <!-- Wrap saved pets link in a container with complementary color -->
-                <a class="nav-link" href="#">Saved Pets</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <nav class="navbar navbar-expand-lg">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile" class="btn btn-outline-light">Profile</a> <!-- Apply Bootstrap button styles -->
+        <button class="btn btn-outline-light" id="logout" style="background-color: #ddf8a6;">Logout</button> <!-- Apply Bootstrap button styles -->
+        {{else}}
+        <a href="/login" class="btn btn-outline-light" style="background-color: #ddf8a6;">Login</a> <!-- Apply Bootstrap button styles -->
+        {{/if}}
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
-
-    </footer>
   </div>
 
 

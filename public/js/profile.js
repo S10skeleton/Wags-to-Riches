@@ -1,8 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const userData = {
-    user_name: 'John Doe',
-    user_location: 'City, Country', // this should be replaced with the actual user data
+    user_name: '',
+    user_location: '', // this should be replaced with the actual user data
   };
 
   //Function to render user data

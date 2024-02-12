@@ -3,12 +3,13 @@
     <form class="input-group mb-3 justify-content-center">
         <h2 class="header2">Filter by cat or dog:</h2>
         <div class="btn-group" role="group" aria-label="Pet Type Filters">
-            <a href="/" class="btn btn-secondary" id="filterAll">All</a>
-            <a href="/api/cat" class="btn btn-secondary" id="filterCat">Cat</a>
-            <a href="/api/dog" class="btn btn-secondary" id="filterDog">Dog</a>
+            <a href="/" class="btn btn-secondary" id="filterAll" style="background-color: #ddf8a6;">All</a>
+            <a href="/api/cat" class="btn btn-secondary" id="filterCat" style="background-color: #ddf8a6;">Cat</a>
+            <a href="/api/dog" class="btn btn-secondary" id="filterDog" style="background-color: #ddf8a6;">Dog</a>
         </div>
     </form>
 </div>
+
 
 
 
@@ -19,17 +20,17 @@
     <div class="row">
 {{#each petsArray}}
     <div class="col-md-4">
-        <a href="/pet/{{id}}" style="text-decoration: none; color: inherit;">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{image}}" class="card-img-top" alt="{{name}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{species}}</p>
-                    <p class="card-text">{{breed}}</p>
-                    <p class="card-text">{{location}}</p>
-                </div>
+    <a href="/pet/{{id}}" style="text-decoration: none; color: inherit;">
+        <div class="card mb-4 shadow-sm rounded">
+            <img src="{{image}}" class="card-img-top" alt="{{name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{species}}</p>
+                <p class="card-text">{{breed}}</p>
+                <p class="card-text">{{location}}</p>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
+</div>
 {{/each}}
 

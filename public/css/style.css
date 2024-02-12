@@ -13,6 +13,10 @@ body {
   text-align: center;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -72,7 +76,7 @@ h5 {
 .container {
   background-color: #6fafc4;
   padding: 20px;
-  box-shadow: 4px 4px 4px 4px #dff8a6; /* Add drop shadow */
+  border: 3px solid #dff8a6; /* Add border with the same color */
   border-radius: 8px; /* Add border-radius for rounded corners */
 }
 
@@ -94,13 +98,18 @@ footer {
   margin-right: 0; /* Remove margin for the last nav item */
 }
 
+.col-md-4 {
+  border-radius: 8px;
+}
+
 /* Style the boxes for the pets */
 .pet-box {
   background-color: #a6f8a6;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+  border: 3px solid rgba(0, 0, 0, 0.1); /* Add border with the same color */
   border-radius: 8px; /* Add border-radius for rounded corners */
+  box-shadow: none; /* Remove box shadow */
 }
 
 .form-control {

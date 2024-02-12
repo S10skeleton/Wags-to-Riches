@@ -25,9 +25,10 @@ router.get('/:id', async (req, res) => {
       phone: petDetail.data.animal.contact.phone,
       city: petDetail.data.animal.contact.address.city,
       image: petDetail.data.animal.photos.length > 0 ? petDetail.data.animal.photos[0].large : null,
+      logged_in: req.session.logged_in,
     };
 
-    res.render('pet', pet);
+    res.render('pet', pet)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -40,8 +41,10 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Pets }],
     });
+
+    const user = userData.get({ plain: true });
 
     res.render('profile', {
       ...user,

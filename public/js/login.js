@@ -15,14 +15,22 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
           });
       
-          if (response.ok) {
-            // If successful, redirect the browser to the profile page
-            document.location.replace('/profile');
-          } else {
-            alert(response.statusText);
-          }
-        }
-      };
+    // If login is successful, redirect to the profile page
+    if (response.ok) {
+      const newResponse = await fetch('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      // 2nd check added to prevent false log in, not dry but works
+      if (newResponse.ok)
+      document.location.replace('/profile');
+    // Error handeling
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
 
 
     const signupFormHandler = async (event) => {
@@ -39,13 +47,21 @@ const loginFormHandler = async (event) => {
           headers: { 'Content-Type': 'application/json' },
         });
     
-        if (response.ok) {
-          document.location.replace('/profile');
-        } else {
-          alert(response.statusText);
-        }
-      }
-    };
+    // If signup is successful, redirect to the profile page
+    if (response.ok) {
+      const newResponse = await fetch('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      // 2nd check added to force log in on new user, not dry but works
+      if (newResponse.ok)
+      document.location.replace('/profile');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
     
     document
       .querySelector('.login-form')

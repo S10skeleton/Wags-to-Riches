@@ -41,6 +41,7 @@ h1 a {
   text-align: center;
   color: #333; /* Dark text color for the header link */
   text-decoration: none;
+  margin-left: 700px;
 }
 
 h5 {
